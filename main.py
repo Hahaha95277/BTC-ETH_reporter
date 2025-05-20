@@ -26,6 +26,10 @@ async def report_btc_eth_ratio():
     print("訊息已送出！", message)
 
 @app.route("/")
+def index():
+    return "BTC/ETH Reporter is running."
+
+@app.route("/report")
 def trigger_report():
     asyncio.run(report_btc_eth_ratio())
     return "報告已送出！"
