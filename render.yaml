@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: btceth-reporter
+    env: python
+    buildCommand: ""
+    startCommand: "python main.py"
+    plan: free
+    envVars:
+      - key: TELEGRAM_TOKEN
+        value: replace-me
+      - key: CHAT_ID
+        value: replace-me
