@@ -31,7 +31,9 @@ def index():
 
 @app.route("/report")
 def trigger_report():
-    asyncio.run(report_btc_eth_ratio())
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(report_btc_eth_ratio())
     return "報告已送出！"
 
 if __name__ == "__main__":
