@@ -1,0 +1,15 @@
+name: Daily BTC/ETH Report
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # UTC 時間每天 00:00 = 台灣時間 08:00
+  workflow_dispatch:      # 支援手動觸發
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Render /report
+        run: |
+          curl -s https://btc-eth-reporter.onrender.com/report
