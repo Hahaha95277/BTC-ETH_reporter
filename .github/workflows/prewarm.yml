@@ -1,0 +1,13 @@
+name: Prewarm Render
+
+on:
+  schedule:
+    - cron: '55 23 * * *'  # 每天台灣時間 07:55
+  workflow_dispatch:       # 可手動觸發測試
+
+jobs:
+  warm-up:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Render root page
+        run: curl -s https://btc-eth-reporter.onrender.com/ > /dev/null
